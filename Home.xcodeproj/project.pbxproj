@@ -26,6 +26,14 @@
 		5E4B2A4C1E82F2F800EADBA6 /* grand_canyon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5E4B2A491E82F2F800EADBA6 /* grand_canyon.jpg */; };
 		5E4B2A4D1E82F2F800EADBA6 /* sindhu_beach.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5E4B2A4A1E82F2F800EADBA6 /* sindhu_beach.jpg */; };
 		5E4B2A4E1E82F2F800EADBA6 /* underwater.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5E4B2A4B1E82F2F800EADBA6 /* underwater.jpg */; };
+		5EB9B6851E8B61B300817E04 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EB9B6831E8B61B300817E04 /* Interface.storyboard */; };
+		5EB9B6871E8B61B300817E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EB9B6861E8B61B300817E04 /* Assets.xcassets */; };
+		5EB9B68E1E8B61B300817E04 /* Home Watch Kit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5EB9B68D1E8B61B300817E04 /* Home Watch Kit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5EB9B6951E8B61B300817E04 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB9B6941E8B61B300817E04 /* InterfaceController.swift */; };
+		5EB9B6971E8B61B300817E04 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB9B6961E8B61B300817E04 /* ExtensionDelegate.swift */; };
+		5EB9B6991E8B61B300817E04 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB9B6981E8B61B300817E04 /* NotificationController.swift */; };
+		5EB9B69B1E8B61B400817E04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EB9B69A1E8B61B400817E04 /* Assets.xcassets */; };
+		5EB9B69F1E8B61B400817E04 /* Home Watch Kit.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5EB9B6811E8B61B300817E04 /* Home Watch Kit.app */; };
 		953753842B228AD7892824BA /* Pods_HomeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D6F18CF54777FB38C9B3DAE /* Pods_HomeUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +52,46 @@
 			remoteGlobalIDString = 5E0873C01E82D58E00BB4D60;
 			remoteInfo = Home;
 		};
+		5EB9B68F1E8B61B300817E04 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E0873B91E82D58E00BB4D60 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5EB9B68C1E8B61B300817E04;
+			remoteInfo = "Home Watch Kit Extension";
+		};
+		5EB9B69D1E8B61B400817E04 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5E0873B91E82D58E00BB4D60 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5EB9B6801E8B61B300817E04;
+			remoteInfo = "Home Watch Kit";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5EB9B6A51E8B61B400817E04 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5EB9B68E1E8B61B300817E04 /* Home Watch Kit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EB9B6A71E8B61B400817E04 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				5EB9B69F1E8B61B400817E04 /* Home Watch Kit.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		181F6D7288BC06490FA0EBBF /* Pods-Home.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Home.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Home/Pods-Home.debug.xcconfig"; sourceTree = "<group>"; };
@@ -74,6 +121,17 @@
 		5E4B2A491E82F2F800EADBA6 /* grand_canyon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = grand_canyon.jpg; path = "../../Vacation360/Vacation 360/grand_canyon.jpg"; sourceTree = "<group>"; };
 		5E4B2A4A1E82F2F800EADBA6 /* sindhu_beach.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sindhu_beach.jpg; path = "../../Vacation360/Vacation 360/sindhu_beach.jpg"; sourceTree = "<group>"; };
 		5E4B2A4B1E82F2F800EADBA6 /* underwater.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = underwater.jpg; path = "../../Vacation360/Vacation 360/underwater.jpg"; sourceTree = "<group>"; };
+		5EB9B6811E8B61B300817E04 /* Home Watch Kit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Home Watch Kit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EB9B6841E8B61B300817E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		5EB9B6861E8B61B300817E04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5EB9B6881E8B61B300817E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EB9B68D1E8B61B300817E04 /* Home Watch Kit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Home Watch Kit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5EB9B6931E8B61B300817E04 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		5EB9B6941E8B61B300817E04 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		5EB9B6961E8B61B300817E04 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		5EB9B6981E8B61B300817E04 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		5EB9B69A1E8B61B400817E04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5EB9B69C1E8B61B400817E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D6F18CF54777FB38C9B3DAE /* Pods_HomeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B739CDFFEDD9BAD2A5D2A190 /* Pods-Home.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Home.release.xcconfig"; path = "Pods/Target Support Files/Pods-Home/Pods-Home.release.xcconfig"; sourceTree = "<group>"; };
 		B9F6EA7857A5C7BECE299D11 /* Pods-HomeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeTests/Pods-HomeTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -114,6 +172,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5EB9B68A1E8B61B300817E04 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -124,6 +189,8 @@
 				5E0873C31E82D58E00BB4D60 /* Home */,
 				5E0873D81E82D58F00BB4D60 /* HomeTests */,
 				5E0873E31E82D58F00BB4D60 /* HomeUITests */,
+				5EB9B6821E8B61B300817E04 /* Home Watch Kit */,
+				5EB9B6911E8B61B300817E04 /* Home Watch Kit Extension */,
 				5E0873C21E82D58E00BB4D60 /* Products */,
 				5E0873F21E82D66300BB4D60 /* Frameworks */,
 				EA74728135796011C55A8979 /* Pods */,
@@ -136,6 +203,8 @@
 				5E0873C11E82D58E00BB4D60 /* Home.app */,
 				5E0873D51E82D58F00BB4D60 /* HomeTests.xctest */,
 				5E0873E01E82D58F00BB4D60 /* HomeUITests.xctest */,
+				5EB9B6811E8B61B300817E04 /* Home Watch Kit.app */,
+				5EB9B68D1E8B61B300817E04 /* Home Watch Kit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -199,6 +268,37 @@
 			name = "360 Images";
 			sourceTree = "<group>";
 		};
+		5EB9B6821E8B61B300817E04 /* Home Watch Kit */ = {
+			isa = PBXGroup;
+			children = (
+				5EB9B6831E8B61B300817E04 /* Interface.storyboard */,
+				5EB9B6861E8B61B300817E04 /* Assets.xcassets */,
+				5EB9B6881E8B61B300817E04 /* Info.plist */,
+			);
+			path = "Home Watch Kit";
+			sourceTree = "<group>";
+		};
+		5EB9B6911E8B61B300817E04 /* Home Watch Kit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				5EB9B6941E8B61B300817E04 /* InterfaceController.swift */,
+				5EB9B6961E8B61B300817E04 /* ExtensionDelegate.swift */,
+				5EB9B6981E8B61B300817E04 /* NotificationController.swift */,
+				5EB9B69A1E8B61B400817E04 /* Assets.xcassets */,
+				5EB9B69C1E8B61B400817E04 /* Info.plist */,
+				5EB9B6921E8B61B300817E04 /* Supporting Files */,
+			);
+			path = "Home Watch Kit Extension";
+			sourceTree = "<group>";
+		};
+		5EB9B6921E8B61B300817E04 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5EB9B6931E8B61B300817E04 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		EA74728135796011C55A8979 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,10 +325,12 @@
 				5E0873BF1E82D58E00BB4D60 /* Resources */,
 				C09FA5953489BCB98037F85F /* [CP] Embed Pods Frameworks */,
 				5D81FCAA79062AAAAAC20176 /* [CP] Copy Pods Resources */,
+				5EB9B6A71E8B61B400817E04 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5EB9B69E1E8B61B400817E04 /* PBXTargetDependency */,
 			);
 			name = Home;
 			productName = Home;
@@ -277,6 +379,40 @@
 			productReference = 5E0873E01E82D58F00BB4D60 /* HomeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		5EB9B6801E8B61B300817E04 /* Home Watch Kit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EB9B6A61E8B61B400817E04 /* Build configuration list for PBXNativeTarget "Home Watch Kit" */;
+			buildPhases = (
+				5EB9B67F1E8B61B300817E04 /* Resources */,
+				5EB9B6A51E8B61B400817E04 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5EB9B6901E8B61B300817E04 /* PBXTargetDependency */,
+			);
+			name = "Home Watch Kit";
+			productName = "Home Watch Kit";
+			productReference = 5EB9B6811E8B61B300817E04 /* Home Watch Kit.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		5EB9B68C1E8B61B300817E04 /* Home Watch Kit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5EB9B6A41E8B61B400817E04 /* Build configuration list for PBXNativeTarget "Home Watch Kit Extension" */;
+			buildPhases = (
+				5EB9B6891E8B61B300817E04 /* Sources */,
+				5EB9B68A1E8B61B300817E04 /* Frameworks */,
+				5EB9B68B1E8B61B300817E04 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Home Watch Kit Extension";
+			productName = "Home Watch Kit Extension";
+			productReference = 5EB9B68D1E8B61B300817E04 /* Home Watch Kit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -304,6 +440,16 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 5E0873C01E82D58E00BB4D60;
 					};
+					5EB9B6801E8B61B300817E04 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = GNRCM5BXKW;
+						ProvisioningStyle = Automatic;
+					};
+					5EB9B68C1E8B61B300817E04 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = GNRCM5BXKW;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 5E0873BC1E82D58E00BB4D60 /* Build configuration list for PBXProject "Home" */;
@@ -322,6 +468,8 @@
 				5E0873C01E82D58E00BB4D60 /* Home */,
 				5E0873D41E82D58F00BB4D60 /* HomeTests */,
 				5E0873DF1E82D58F00BB4D60 /* HomeUITests */,
+				5EB9B6801E8B61B300817E04 /* Home Watch Kit */,
+				5EB9B68C1E8B61B300817E04 /* Home Watch Kit Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -351,6 +499,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EB9B67F1E8B61B300817E04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EB9B6871E8B61B300817E04 /* Assets.xcassets in Resources */,
+				5EB9B6851E8B61B300817E04 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5EB9B68B1E8B61B300817E04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EB9B69B1E8B61B400817E04 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +685,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5EB9B6891E8B61B300817E04 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EB9B6991E8B61B300817E04 /* NotificationController.swift in Sources */,
+				5EB9B6971E8B61B300817E04 /* ExtensionDelegate.swift in Sources */,
+				5EB9B6951E8B61B300817E04 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -532,6 +707,16 @@
 			isa = PBXTargetDependency;
 			target = 5E0873C01E82D58E00BB4D60 /* Home */;
 			targetProxy = 5E0873E11E82D58F00BB4D60 /* PBXContainerItemProxy */;
+		};
+		5EB9B6901E8B61B300817E04 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5EB9B68C1E8B61B300817E04 /* Home Watch Kit Extension */;
+			targetProxy = 5EB9B68F1E8B61B300817E04 /* PBXContainerItemProxy */;
+		};
+		5EB9B69E1E8B61B400817E04 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5EB9B6801E8B61B300817E04 /* Home Watch Kit */;
+			targetProxy = 5EB9B69D1E8B61B400817E04 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -550,6 +735,14 @@
 				5E0873CE1E82D58F00BB4D60 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		5EB9B6831E8B61B300817E04 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5EB9B6841E8B61B300817E04 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -742,6 +935,76 @@
 			};
 			name = Release;
 		};
+		5EB9B6A01E8B61B400817E04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GNRCM5BXKW;
+				IBSC_MODULE = Home_Watch_Kit_Extension;
+				INFOPLIST_FILE = "Home Watch Kit/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.akshaytiyer.Home.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		5EB9B6A11E8B61B400817E04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = GNRCM5BXKW;
+				IBSC_MODULE = Home_Watch_Kit_Extension;
+				INFOPLIST_FILE = "Home Watch Kit/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = com.akshaytiyer.Home.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
+		5EB9B6A21E8B61B400817E04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = GNRCM5BXKW;
+				INFOPLIST_FILE = "Home Watch Kit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.akshaytiyer.Home.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Debug;
+		};
+		5EB9B6A31E8B61B400817E04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				DEVELOPMENT_TEAM = GNRCM5BXKW;
+				INFOPLIST_FILE = "Home Watch Kit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.akshaytiyer.Home.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -780,6 +1043,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		5EB9B6A41E8B61B400817E04 /* Build configuration list for PBXNativeTarget "Home Watch Kit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EB9B6A21E8B61B400817E04 /* Debug */,
+				5EB9B6A31E8B61B400817E04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5EB9B6A61E8B61B400817E04 /* Build configuration list for PBXNativeTarget "Home Watch Kit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EB9B6A01E8B61B400817E04 /* Debug */,
+				5EB9B6A11E8B61B400817E04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

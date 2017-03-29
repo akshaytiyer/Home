@@ -61,6 +61,21 @@
                                 <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQn-dX-9EN">
+                                <rect key="frame" x="255" y="77" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="sendMessagetoHome:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ffY-vf-Spl"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yul-5p-Ew0">
+                                <rect key="frame" x="76" y="82" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -68,6 +83,7 @@
                     <connections>
                         <outlet property="imageLabel" destination="hnz-3R-nsR" id="Xcw-4y-ZKg"/>
                         <outlet property="imageVRView" destination="Rsw-T1-rF3" id="azB-UO-34V"/>
+                        <outlet property="messageLabel" destination="yul-5p-Ew0" id="fnv-aJ-cp2"/>
                         <outlet property="videoLabel" destination="0IW-ga-Wfq" id="SEI-dP-0XK"/>
                         <outlet property="videoVRView" destination="CBd-Da-ubn" id="rA8-h0-2gv"/>
                     </connections>
