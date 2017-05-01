@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Home/HomeViewController.swift"
-            timestampString = "512452616.498782"
+            filePath = "Home/ViewController.m"
+            timestampString = "515338472.927654"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "session(_:didReceiveMessage:)"
+            startingLineNumber = "332"
+            endingLineNumber = "332"
+            landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

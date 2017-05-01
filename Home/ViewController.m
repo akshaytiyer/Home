@@ -18,7 +18,7 @@ inline static void dispatch_async_default(dispatch_block_t block)
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);
 }
 
-@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 {
     NSMutableArray* _objects;
     HttpStorageInfo* _storageInfo;
@@ -69,11 +69,13 @@ inline static void dispatch_async_default(dispatch_block_t block)
             
             NSIndexPath* pos = [NSIndexPath indexPathForRow:0 inSection:1];
             dispatch_async_main(^{
-                [_contentsView insertRowsAtIndexPaths:@[pos]
-                                     withRowAnimation:UITableViewRowAnimationRight];
+                [_contentsView insertItemsAtIndexPaths:@[pos]];
+                
+                //[_contentsView insertRowsAtIndexPaths:@[pos] withRowAnimation:UITableViewRowAnimationRight];
                 for (NSInteger i = 1; i < _objects.count; ++i) {
                     NSIndexPath* path = [NSIndexPath indexPathForRow:i inSection:1];
-                    [_contentsView reloadRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationNone];
+                    //[_contentsView reloadRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationNone];
+                    [_contentsView reloadItemsAtIndexPaths:@[path]];
                 }
             });
         }
@@ -298,20 +300,41 @@ inline static void dispatch_async_default(dispatch_block_t block)
 
 #pragma mark - UITableViewDataSource delegates.
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 2;
+    return 3;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (section==0) {
         return [_httpConnection connected] ? 1: 0;
     }
     return _objects.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+ {
+    TableCell* cell;
+    if (indexPath.section==0) {
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cameraInfo" forIndexPath:indexPath];
+        //
+        //TableCellObject* obj = [_objects objectAtIndex:indexPath.row];
+        //cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cameraInfo" forIndexPath:indexPath];
+        //cell.collectionViewImage.image = obj.thumbnail;
+    }
+    else  {
+        NSDateFormatter* df = [[NSDateFormatter alloc] init];
+        [df setDateStyle:NSDateFormatterShortStyle];
+        [df setTimeStyle:NSDateFormatterMediumStyle];
+        
+        TableCellObject* obj = [_objects objectAtIndex:indexPath.row];
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cameraInfo" forIndexPath:indexPath];
+        cell.collectionViewImage.image = obj.thumbnail;
+    }
+        return cell;
+}
+
+/*- (UITableViewCell *)tableView:(UITableView *)tableView cell:(NSIndexPath*)indexPath
 {
     TableCell* cell;
 
@@ -336,8 +359,9 @@ inline static void dispatch_async_default(dispatch_block_t block)
         cell.objectIndex = (uint32_t)indexPath.row;
     }
     return cell;
-}
+}*/
 
+/*
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
 
     NSIndexPath *path = indexPath;
@@ -350,21 +374,23 @@ inline static void dispatch_async_default(dispatch_block_t block)
                 [_objects removeObjectAtIndex:path.row];
 
                 // Delete row from table
-                [_contentsView deleteRowsAtIndexPaths:pathArray
-                                     withRowAnimation:UITableViewRowAnimationAutomatic];
+                [_contentsView deleteItemsAtIndexPaths:pathArray];
+                //[_contentsView deleteRowsAtIndexPaths:pathArray                   withRowAnimation:UITableViewRowAnimationAutomatic];
                 for (NSInteger i = path.row; i < _objects.count; ++i) {
                     NSIndexPath* index = [NSIndexPath indexPathForRow:i inSection:path.section];
-                    [_contentsView reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationTop];
+                    //[_contentsView reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationTop];
+                    [_contentsView reloadItemsAtIndexPaths:@[index]];
                 }
             });
         }
     });
 }
 
+
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
-
+*/
 #pragma mark - Life cycle.
 
 - (void)viewDidLoad

@@ -8,6 +8,7 @@
 
 import UIKit
 import WatchConnectivity
+import CoreMotion
 
 class HomeViewController: UIViewController, WCSessionDelegate {
     
@@ -22,6 +23,10 @@ class HomeViewController: UIViewController, WCSessionDelegate {
     @available(iOS 9.3, *)
     public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
     }
+    
+    var motionManager = CMMotionManager()
+    var previousValue = 0.0
+    var nextValue = 0.0
     
     @IBOutlet var imageVRView: GVRPanoramaView!
     @IBOutlet var videoVRView: GVRVideoView!
@@ -67,6 +72,52 @@ class HomeViewController: UIViewController, WCSessionDelegate {
         videoVRView.enableFullscreenButton = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        motionManager.accelerometerUpdateInterval = 0.3
+        motionManager.startAccelerometerUpdates(to: OperationQueue.current!) { (data, error) in
+            if let myData = data
+            {
+                //print(myData)
+                //print(self.calendar.component(.second, from: self.date))
+                if self.previousValue != 0.0 {
+                    if myData.acceleration.z > -0.3 && myData.acceleration.z < 0.3  {
+                        if self.currentView == self.imageVRView {
+                            Media.photoArray.append(Media.photoArray.removeFirst())
+                            self.imageVRView?.load(UIImage(named: Media.photoArray.first!),
+                                              of: GVRPanoramaImageType.mono)
+                        }
+                        self.previousValue=0.0
+                    }
+                    else {
+                        
+                        self.previousValue=0.0
+                    }
+                }
+                
+                if self.nextValue != 0.0 {
+                    print(myData.acceleration.z)
+                    if myData.acceleration.z > -0.2 && myData.acceleration.z < 0.1  {
+                        print("Rugved")
+                        self.nextValue=0.0
+                    }
+                    else {
+                        self.nextValue=0.0
+                    }
+                }
+                
+                if myData.acceleration.z < -0.8
+                {
+                    self.previousValue = myData.acceleration.z
+                    
+                }
+                else if myData.acceleration.z > 0.2
+                {
+                    self.nextValue = myData.acceleration.z
+                    
+                }
+            }
+        }
+    }
     
     @IBAction func sendMessagetoHome(_ sender: Any) {
         session.sendMessage(["a" : "Hello"], replyHandler: nil, errorHandler: nil)

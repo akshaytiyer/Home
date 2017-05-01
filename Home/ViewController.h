@@ -11,7 +11,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *captureButton;
 @property (strong, nonatomic) IBOutlet UIButton *imageSizeButtom;
 @property (nonatomic, strong) IBOutlet UIImageView *motionJpegView;
-@property (nonatomic, strong) IBOutlet UITableView *contentsView;
+@property (nonatomic, strong) IBOutlet UICollectionView *contentsView;
 @property (nonatomic, strong) IBOutlet UITextView *logView;
 
 @end
