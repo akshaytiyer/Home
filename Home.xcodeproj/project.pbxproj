@@ -52,6 +52,10 @@
 		5EEFACB31E96FF2500AD45E3 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEFACB21E96FF2500AD45E3 /* ImageViewController.m */; };
 		5EEFACB91E97024700AD45E3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EEFACB71E97024700AD45E3 /* ViewController.m */; };
 		5EEFACC51E97087200AD45E3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5EEFACC31E97087200AD45E3 /* InfoPlist.strings */; };
+		5EF954001EB8E4B800078BEF /* IMG_3236.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 5EF953FD1EB8E4B800078BEF /* IMG_3236.JPG */; };
+		5EF954011EB8E4B800078BEF /* IMG_3234.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 5EF953FE1EB8E4B800078BEF /* IMG_3234.JPG */; };
+		5EF954021EB8E4B800078BEF /* IMG_3235.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 5EF953FF1EB8E4B800078BEF /* IMG_3235.JPG */; };
+		5EF954041EB8E5B000078BEF /* BoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF954031EB8E5B000078BEF /* BoxViewController.swift */; };
 		953753842B228AD7892824BA /* Pods_HomeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D6F18CF54777FB38C9B3DAE /* Pods_HomeUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -185,6 +189,10 @@
 		5EEFACB61E97024700AD45E3 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		5EEFACB71E97024700AD45E3 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5EEFACC31E97087200AD45E3 /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		5EF953FD1EB8E4B800078BEF /* IMG_3236.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_3236.JPG; sourceTree = "<group>"; };
+		5EF953FE1EB8E4B800078BEF /* IMG_3234.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_3234.JPG; sourceTree = "<group>"; };
+		5EF953FF1EB8E4B800078BEF /* IMG_3235.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_3235.JPG; sourceTree = "<group>"; };
+		5EF954031EB8E5B000078BEF /* BoxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoxViewController.swift; path = ../BoxViewController.swift; sourceTree = "<group>"; };
 		6D6F18CF54777FB38C9B3DAE /* Pods_HomeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B739CDFFEDD9BAD2A5D2A190 /* Pods-Home.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Home.release.xcconfig"; path = "Pods/Target Support Files/Pods-Home/Pods-Home.release.xcconfig"; sourceTree = "<group>"; };
 		B9F6EA7857A5C7BECE299D11 /* Pods-HomeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeTests/Pods-HomeTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -269,6 +277,7 @@
 				5EEFAC851E96FE3200AD45E3 /* 360 Camera */,
 				5E4B2A4F1E82F2FB00EADBA6 /* 360 Images */,
 				5E0873C41E82D58E00BB4D60 /* AppDelegate.swift */,
+				5EF954031EB8E5B000078BEF /* BoxViewController.swift */,
 				5E16D5591E82F0EC006BC0B7 /* HomeViewController.swift */,
 				5EE49F321EB7EE2B00AF666D /* LiveViewController.swift */,
 				5E0873C81E82D58F00BB4D60 /* Main.storyboard */,
@@ -317,6 +326,9 @@
 		5E4B2A4F1E82F2FB00EADBA6 /* 360 Images */ = {
 			isa = PBXGroup;
 			children = (
+				5EF953FD1EB8E4B800078BEF /* IMG_3236.JPG */,
+				5EF953FE1EB8E4B800078BEF /* IMG_3234.JPG */,
+				5EF953FF1EB8E4B800078BEF /* IMG_3235.JPG */,
 				5E4B2A491E82F2F800EADBA6 /* grand_canyon.jpg */,
 				5E4B2A4A1E82F2F800EADBA6 /* sindhu_beach.jpg */,
 				5E4B2A4B1E82F2F800EADBA6 /* underwater.jpg */,
@@ -585,9 +597,12 @@
 			files = (
 				5E0873CF1E82D58F00BB4D60 /* LaunchScreen.storyboard in Resources */,
 				5E0873CC1E82D58F00BB4D60 /* Assets.xcassets in Resources */,
+				5EF954021EB8E4B800078BEF /* IMG_3235.JPG in Resources */,
+				5EF954011EB8E4B800078BEF /* IMG_3234.JPG in Resources */,
 				5E4B2A4E1E82F2F800EADBA6 /* underwater.jpg in Resources */,
 				5E4B2A4C1E82F2F800EADBA6 /* grand_canyon.jpg in Resources */,
 				5E4B2A4D1E82F2F800EADBA6 /* sindhu_beach.jpg in Resources */,
+				5EF954001EB8E4B800078BEF /* IMG_3236.JPG in Resources */,
 				5E0873CA1E82D58F00BB4D60 /* Main.storyboard in Resources */,
 				5EEFACC51E97087200AD45E3 /* InfoPlist.strings in Resources */,
 			);
@@ -779,6 +794,7 @@
 				5EEFACB01E96FF1600AD45E3 /* UVSphere.m in Sources */,
 				5EE49F331EB7EE2B00AF666D /* LiveViewController.swift in Sources */,
 				5EEFACB91E97024700AD45E3 /* ViewController.m in Sources */,
+				5EF954041EB8E5B000078BEF /* BoxViewController.swift in Sources */,
 				5EEFAC961E96FE5E00AD45E3 /* HttpConnection.m in Sources */,
 				5EEFACA41E96FF0100AD45E3 /* GLRenderView.m in Sources */,
 				5EEFACB31E96FF2500AD45E3 /* ImageViewController.m in Sources */,
