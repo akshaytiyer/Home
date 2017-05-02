@@ -47,6 +47,9 @@ class HomeViewController: UIViewController, WCSessionDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setNavigationBarProperties()
+        setTabBarProperties()
+        
         // Do any additional setup after loading the view, typically from a nib.
         if(WCSession.isSupported())
         {
@@ -64,12 +67,16 @@ class HomeViewController: UIViewController, WCSessionDelegate {
                          of: GVRPanoramaImageType.mono)
         imageVRView.enableCardboardButton = true
         imageVRView.enableFullscreenButton = true
+        imageVRView.layer.masksToBounds = true
+        imageVRView.layer.cornerRadius = 10
         imageVRView.delegate = self
         
         videoVRView.load(from: URL(string: Media.videoURL))
         videoVRView.delegate = self
         videoVRView.enableCardboardButton = true
         videoVRView.enableFullscreenButton = true
+        videoVRView.layer.masksToBounds = true
+        videoVRView.layer.cornerRadius = 10
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -134,6 +141,22 @@ class HomeViewController: UIViewController, WCSessionDelegate {
                                   of: GVRPanoramaImageType.mono)
             }
         }
+    }
+    
+    func setNavigationBarProperties()
+    {
+        let logo = UIImage(named: "OrangeIcon")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
+    func setTabBarProperties()
+    {
+        self.tabBarController?.tabBar.tintColor = UIColor(red: 255.0/255.0, green: 129.0/255.0, blue: 0, alpha: 1.0)
+        self.tabBarController?.tabBar.backgroundImage = UIImage()
+        self.tabBarController?.tabBar.shadowImage = UIImage()
     }
 }
 

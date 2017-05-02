@@ -18,7 +18,7 @@ inline static void dispatch_async_default(dispatch_block_t block)
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);
 }
 
-@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 {
     NSMutableArray* _objects;
     HttpStorageInfo* _storageInfo;
@@ -69,13 +69,11 @@ inline static void dispatch_async_default(dispatch_block_t block)
             
             NSIndexPath* pos = [NSIndexPath indexPathForRow:0 inSection:1];
             dispatch_async_main(^{
-                [_contentsView insertItemsAtIndexPaths:@[pos]];
-                
-                //[_contentsView insertRowsAtIndexPaths:@[pos] withRowAnimation:UITableViewRowAnimationRight];
+                [_contentsView insertRowsAtIndexPaths:@[pos]
+                                     withRowAnimation:UITableViewRowAnimationRight];
                 for (NSInteger i = 1; i < _objects.count; ++i) {
                     NSIndexPath* path = [NSIndexPath indexPathForRow:i inSection:1];
-                    //[_contentsView reloadRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationNone];
-                    [_contentsView reloadItemsAtIndexPaths:@[path]];
+                    [_contentsView reloadRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationNone];
                 }
             });
         }
@@ -131,9 +129,9 @@ inline static void dispatch_async_default(dispatch_block_t block)
 {
     TableCell* c = (TableCell*)sender;
     TableCellObject* o = [_objects objectAtIndex:c.objectIndex];
-
+    
     if (CODE_JPEG == o.objectInfo.file_format) {
-
+        
         id d = [segue destinationViewController];
         if ([d isKindOfClass:[ImageViewController class]]) {
             ImageViewController* dest = (ImageViewController*)d;
@@ -220,7 +218,7 @@ inline static void dispatch_async_default(dispatch_block_t block)
 - (void)enumerateImages
 {
     [_objects removeAllObjects];
-
+    
     [_httpConnection getDeviceInfo:^(const HttpDeviceInfo* info) {
         // "GetDeviceInfo" completion callback.
         
@@ -231,7 +229,7 @@ inline static void dispatch_async_default(dispatch_block_t block)
     }];
     
     dispatch_async_default(^{
-        // Create "Waiting" indicator 
+        // Create "Waiting" indicator
         UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc]
                                               initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         indicator.color = [UIColor grayColor];
@@ -243,7 +241,7 @@ inline static void dispatch_async_default(dispatch_block_t block)
             float x = _contentsView.frame.size.width/2 - w/2;
             float y = _contentsView.frame.size.height/2 - h/2;
             indicator.frame = CGRectMake(x, y, w, h);
-
+            
             // Start indicator animation
             [_contentsView addSubview:indicator];
             [indicator startAnimating];
@@ -257,7 +255,7 @@ inline static void dispatch_async_default(dispatch_block_t block)
         
         // Get object informations for primary images.
         NSArray* imageInfoes = [_httpConnection getImageInfoes];
-
+        
         dispatch_async_main(^{
             [self appendLog:[NSString stringWithFormat:@"getImageInfoes() received %zd infoes.", imageInfoes.count]];
         });
@@ -300,44 +298,23 @@ inline static void dispatch_async_default(dispatch_block_t block)
 
 #pragma mark - UITableViewDataSource delegates.
 
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 2;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     if (section==0) {
         return [_httpConnection connected] ? 1: 0;
     }
     return _objects.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
- {
-    TableCell* cell;
-    if (indexPath.section==0) {
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cameraInfo" forIndexPath:indexPath];
-        //
-        //TableCellObject* obj = [_objects objectAtIndex:indexPath.row];
-        //cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cameraInfo" forIndexPath:indexPath];
-        //cell.collectionViewImage.image = obj.thumbnail;
-    }
-    else  {
-        NSDateFormatter* df = [[NSDateFormatter alloc] init];
-        [df setDateStyle:NSDateFormatterShortStyle];
-        [df setTimeStyle:NSDateFormatterMediumStyle];
-        
-        TableCellObject* obj = [_objects objectAtIndex:indexPath.row];
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cameraInfo" forIndexPath:indexPath];
-        cell.collectionViewImage.image = obj.thumbnail;
-    }
-        return cell;
-}
-
-/*- (UITableViewCell *)tableView:(UITableView *)tableView cell:(NSIndexPath*)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
     TableCell* cell;
-
+    
     if (indexPath.section==0) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"cameraInfo"];
         cell.textLabel.text = [NSString stringWithFormat:@"%ld[shots] %ld/%ld[MB] free",
@@ -350,7 +327,7 @@ inline static void dispatch_async_default(dispatch_block_t block)
         NSDateFormatter* df = [[NSDateFormatter alloc] init];
         [df setDateStyle:NSDateFormatterShortStyle];
         [df setTimeStyle:NSDateFormatterMediumStyle];
-
+        
         TableCellObject* obj = [_objects objectAtIndex:indexPath.row];
         cell = [tableView dequeueReusableCellWithIdentifier:@"customCell"];
         cell.textLabel.text = [NSString stringWithFormat:@"%@", obj.objectInfo.file_name];
@@ -359,11 +336,10 @@ inline static void dispatch_async_default(dispatch_block_t block)
         cell.objectIndex = (uint32_t)indexPath.row;
     }
     return cell;
-}*/
+}
 
-/*
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     NSIndexPath *path = indexPath;
     NSArray *pathArray = [NSArray arrayWithObject:path];
     dispatch_async_default(^{
@@ -372,25 +348,23 @@ inline static void dispatch_async_default(dispatch_block_t block)
             dispatch_async_main(^{
                 // Delete data source
                 [_objects removeObjectAtIndex:path.row];
-
+                
                 // Delete row from table
-                [_contentsView deleteItemsAtIndexPaths:pathArray];
-                //[_contentsView deleteRowsAtIndexPaths:pathArray                   withRowAnimation:UITableViewRowAnimationAutomatic];
+                [_contentsView deleteRowsAtIndexPaths:pathArray
+                                     withRowAnimation:UITableViewRowAnimationAutomatic];
                 for (NSInteger i = path.row; i < _objects.count; ++i) {
                     NSIndexPath* index = [NSIndexPath indexPathForRow:i inSection:path.section];
-                    //[_contentsView reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationTop];
-                    [_contentsView reloadItemsAtIndexPaths:@[index]];
+                    [_contentsView reloadRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationTop];
                 }
             });
         }
     });
 }
 
-
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
-*/
+
 #pragma mark - Life cycle.
 
 - (void)viewDidLoad
