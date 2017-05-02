@@ -5,6 +5,9 @@
 #import <UIKit/UIKit.h>
 #import <GLKit/GLKit.h>
 #import "HttpSession.h"
+#import "GVRPanoramaView.h"
+#import "GVRWidgetView.h"
+#import "GVRVideoView.h"
 
 @class HttpImageInfo;
 
@@ -23,6 +26,7 @@ typedef enum : int {
 @property (nonatomic, strong) IBOutlet UIProgressView* progressView;
 @property (nonatomic, strong) IBOutlet UIButton *closeButton;
 @property (nonatomic, strong) IBOutlet UIButton *configButton;
+@property (nonatomic, strong) IBOutlet GVRPanoramaView *imageVRView;
 
 - (IBAction)onCloseClicked:(id)sender;
 - (void)getObject:(HttpImageInfo *)imageInfo withSession:(HttpSession *)session;

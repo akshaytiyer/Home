@@ -7,9 +7,7 @@
 #import "GLRenderView.h"
 #import "SphereXmp.h"
 #import "HttpImageInfo.h"
-#import "GVRPanoramaView.h"
-#import "GVRWidgetView.h"
-#import "GVRVideoView.h"
+
 
 @interface ImageViewController ()
 {
@@ -46,6 +44,20 @@
 }
 
 - (IBAction)onConfig:(id)sender {
+
+}
+
+- (IBAction)shareContent:(UIBarButtonItem *)sender {
+    
+    NSString * message = @"My too cool Son";
+    
+    UIImage * image = [UIImage imageWithData:_imageData];
+    
+    NSArray * shareItems = @[message, image];
+    
+    UIActivityViewController * avc = [[UIActivityViewController alloc] initWithActivityItems:shareItems applicationActivities:nil];
+    
+    [self presentViewController:avc animated:YES completion:nil];
 }
 
 - (void)myConfig:(id)sender {
@@ -156,6 +168,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _imageVRView.enableCardboardButton = true;
+    _imageVRView.enableFullscreenButton = true;
 }
 
 
@@ -183,25 +197,14 @@
 {
     glkViewController = [[GlkViewController alloc] init:_imageView.frame image:_imageData width:imageWidth height:imageHeight yaw:_yaw roll:_roll pitch:_pitch];
     glkViewController.view.frame = _imageView.frame;
- 
+    
+    
+    [_imageVRView loadImage:[UIImage imageWithData:_imageData] ofType:kGVRPanoramaImageTypeMono];
     
     NSLog(@"startGLK imageData: %@", [[NSString alloc] initWithData:_imageData encoding:NSUTF8StringEncoding]);
     NSLog(@"startGLK: frame %f %f %f %f", _imageView.frame.origin.x, _imageView.frame.origin.y, _imageView.frame.size.width, _imageView.frame.size.height);
     
     [self.view addSubview:glkViewController.view];
-    
-    UIButton *myButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    myButton.frame = _closeButton.frame;
-    [myButton setTitle:_closeButton.currentTitle forState:UIControlStateNormal];
-    [myButton addTarget:self action:@selector(myCloseClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [glkViewController.view addSubview:myButton];
-
-    UIButton *myConfigButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    myConfigButton.frame = _configButton.frame;
-    [myConfigButton setTitle:_configButton.currentTitle forState:UIControlStateNormal];
-    [myConfigButton addTarget:self action:@selector(myConfig:) forControlEvents:UIControlEventTouchUpInside];
-    [glkViewController.view addSubview:myConfigButton];
-    
     [self addChildViewController:glkViewController];
     [glkViewController didMoveToParentViewController:self];
 }

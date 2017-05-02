@@ -7,12 +7,13 @@
 //
 
 import UIKit
-class LiveViewController: UIViewController
+class LiveViewController: UIViewController, UITextFieldDelegate
 {
     @IBOutlet weak var urlTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.urlTextField.delegate = self;
         self.urlTextField.layer.cornerRadius = 10.0
     }
     
@@ -23,5 +24,8 @@ class LiveViewController: UIViewController
         UIApplication.shared.open(url as URL)
     }
     
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
 }
